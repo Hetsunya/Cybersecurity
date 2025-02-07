@@ -1,0 +1,47 @@
+﻿<Window x:Class="lab7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab7"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="490" Width="822">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="10" Grid.ColumnSpan="2">
+            Программа для шифрования и цифровых подписей
+        </TextBlock>
+
+        <!-- Ввод сообщения (левая часть) -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+            <TextBlock Text="Введите сообщение:"/>
+            <TextBox Name="MessageTextBox" Height="100" Margin="0,5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        </StackPanel>
+
+        <!-- Отображение результатов (левая часть) -->
+        <StackPanel Grid.Row="2" Grid.Column="0" Margin="10">
+            <TextBlock Text="Результат:"/>
+            <TextBox Name="ResultTextBox" Height="100" Margin="0,5" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True"/>
+        </StackPanel>
+
+        <!-- Кнопки (правая часть) -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+            <Button Name="EncryptButton" Content="Зашифровать" Width="150" Margin="5" Click="EncryptButton_Click"/>
+            <Button Name="DecryptButton" Content="Дешифровать" Width="150" Margin="5" Click="DecryptButton_Click"/>
+            <Button Name="SignButton" Content="Добавить подпись" Width="150" Margin="5" Click="SignButton_Click"/>
+            <Button Name="SendButton" Content="Отправить сообщение" Width="150" Margin="5" Click="SendButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

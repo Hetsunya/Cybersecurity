@@ -1,6 +1,6 @@
 import platform
 import uuid
-from lab5.sha import sha256
+from sha import sha256
 
 def get_system_info():
     system_info = {}
