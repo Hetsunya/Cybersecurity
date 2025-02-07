@@ -1,31 +1,17 @@
-import math
+def encrypt(text: str, shift: int) -> str:
+    encrypted = []
+    for char in text:
+        # Сдвигаем символы с использованием их Unicode кодов
+        encrypted.append(chr((ord(char) + shift) % 1114112))  # Для всех символов Unicode
+    return ''.join(encrypted)
 
-def encrypt(text: str, columns: int) -> str:
-    rows = math.ceil(len(text) / columns)
-    grid = ['' for _ in range(columns)]
-
-    for i, char in enumerate(text):
-        grid[i % columns] += char
-
-    return ''.join(grid)
-
-def decrypt(encrypted: str, columns: int) -> str:
-    rows = math.ceil(len(encrypted) / columns)
-    grid = ['' for _ in range(rows)]
-
-    index = 0
-    for col in range(columns):
-        for row in range(rows):
-            if index < len(encrypted):
-                grid[row] += encrypted[index]
-                index += 1
-
-    return ''.join(grid)
+def decrypt(text: str, shift: int) -> str:
+    return encrypt(text, -shift)
 
 if __name__ == "__main__":
-    message = "HelloWorld"
-    columns = 4
-    enc = encrypt(message, columns)
+    message = "Привет, мир! 123 kjhsfksdhkfjk12368?>><>KJHJGJSf"
+    shift = 3
+    enc = encrypt(message, shift)
     print("Encrypted:", enc)
-    dec = decrypt(enc, columns)
+    dec = decrypt(enc, shift)
     print("Decrypted:", dec)
