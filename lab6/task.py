@@ -24,15 +24,10 @@ def generate_hash():
     system_info_string = ''.join(f"{key}: {value}\n" for key, value in system_info.items())
     return sha256(system_info_string)
 
-print(generate_hash())
 
 def save_hash_to_file(hash_value, filename="system_hash.txt"):
     with open(filename, "w") as f:
         f.write(hash_value)
-
-# Пример использования
-system_hash = generate_hash()
-save_hash_to_file(system_hash)
 
 
 def load_hash_from_file(filename="system_hash.txt"):
@@ -44,18 +39,22 @@ def load_hash_from_file(filename="system_hash.txt"):
 
 
 def check_license():
+    # Получаем сохраненный хеш из файла
     saved_hash = load_hash_from_file()
+    # Генерируем текущий хеш для системы
     current_hash = generate_hash()
 
     if saved_hash is None:
-        # Если файл не существует, сохранить текущий хеш как легальный
+        # Если файл не существует, это первый запуск, сохраняем текущий хеш
         save_hash_to_file(current_hash)
         print("Первый запуск. Хеш сохранен.")
     elif saved_hash != current_hash:
+        # Если хеши не совпадают, значит изменения в аппаратном/программном обеспечении
         print("Нелегальное использование программы!")
     else:
+        # Если хеши совпадают, программа легальна
         print("Лицензия подтверждена. Программа работает.")
 
 
-check_license()
-
+if __name__ == "__main__":
+    check_license()
