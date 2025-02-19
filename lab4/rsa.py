@@ -48,7 +48,7 @@ def generate_keys(bits=8):
     p = generate_prime(bits)
     q = generate_prime(bits)
     n = p * q
-    phi = (p - 1) * (q - 1)
+    phi = (p - 1) * (q - 1) #функция эйлера
 
     e = 65537  # часто выбирается это значение
     d = mod_inverse(e, phi)
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     print("Публичный ключ:", public_key)
     print("Приватный ключ:", private_key)
 
-    message = "Hello RSA"
+    message = "Hello, RSA!"
     print("\nИсходное сообщение:", message)
 
     ciphertext = encrypt(message, public_key)

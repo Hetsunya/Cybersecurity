@@ -1,5 +1,5 @@
 import tkinter as tk
-from lab5.sha import sha256  # Импортируем функцию sha256 из sha.py
+from sha import sha256  # Импортируем функцию sha256 из sha.py
 
 # Функция для хэширования текста и отображения результата
 def hash_text():
