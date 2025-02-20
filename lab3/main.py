@@ -53,7 +53,6 @@ class IdeaApp:
             if len(block) < 8:
                 block = block.ljust(8, b'\x00')  # Добавляем 0, если блок меньше 8 байт
             blocks.append(int.from_bytes(block, byteorder='big'))
-        print(blocks)
         return blocks
 
     def join_blocks(self, blocks):

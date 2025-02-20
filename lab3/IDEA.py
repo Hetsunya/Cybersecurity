@@ -185,12 +185,6 @@ class IDEA:
         return decrypted
 
 if __name__ == "__main__":
-    plain_text = "123ыва,Ю.?>}klisdfouhk2l3.4jcxv**?:?(*.эЪЪ})"
-    byte_data = plain_text.encode('utf-8')
-    print("Исходный текст:", plain_text)
-    print("Байтовая строка:", byte_data)
-    print("Декодированный текст:", byte_data.decode())
-
     key = 0x2b7e151628aed2a6abf7158809cf4f3c
     cipher = IDEA(key)
 
