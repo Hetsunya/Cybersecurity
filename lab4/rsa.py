@@ -54,6 +54,7 @@ def generate_keys(bits=8):
     d = mod_inverse(e, phi)
 
     # Публичный ключ (e, n), приватный ключ (d, n)
+    print(f"p: {p}, q: {q}, n: {n}, phi: {phi}, d: {d}")
     return (e, n), (d, n)
 
 
