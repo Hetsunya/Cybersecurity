@@ -41,8 +41,5 @@
         }
 
         #endregion
-
-        private RadioButton rbServer;
-        private RadioButton rbClient;
     }
 }
